@@ -29,7 +29,6 @@ function Price() {
       name: "GOLD",
       price: "30,000",
       features: [
-        "Traditional Video",
         "Cinematic Video",
         "Full Cinematic Video (40min-1hr)",
         "1 Drone Shoot",
@@ -41,7 +40,6 @@ function Price() {
       price: "35,000",
       features: [
         "Traditional Videography",
-        "Still Videography",
         "Cinematic Video",
         "25 Sheet Albums",
         "Drone Shoot",
@@ -74,7 +72,7 @@ function Price() {
         "Candid Photography",
         "Cinematic Highlight",
         "30 Sheet Albums",
-        "2 Drone Shoot (For 2 Days)",
+        " Drone Shoot (For 2 Days)",
         "Reels / Highlights",
         "Professional Direction",
         "LC-500 (RGB Light)",
