@@ -102,6 +102,8 @@ function Price() {
           </div>
         ))}
       </div>
+      <h2>NOTE: These are 2 days wedding price list!</h2>
+
     </section>
   );
 }
