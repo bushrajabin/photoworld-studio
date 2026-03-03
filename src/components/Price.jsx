@@ -19,7 +19,7 @@ function Price() {
       price: "25,000",
       features: [
         "Traditional Video",
-        "Still Videography",
+        "Still Photography",
         "Highlight Video",
         "20 Sheet Albums",
         "Drone Shoot One Day",

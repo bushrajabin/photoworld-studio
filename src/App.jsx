@@ -10,6 +10,7 @@ import Contact from "./components/Contact";
 import Options from "./components/Options";
 import ModelShoot from "./components/backImages/ModelShoot";
 import AlbumShoot from "./components/backImages/AlbumShoot";
+import Reels from "./components/backImages/Reels";
 function Home() {
   return (
     <>
@@ -32,6 +33,7 @@ function App() {
         <Route path="/portrait" element={<Portrait />} />
         <Route path="/ModelShoot" element={<ModelShoot />} />
         <Route path="/album" element={<AlbumShoot />} />
+        <Route path="/reels" element={<Reels />} />
       </Routes>
     </BrowserRouter>
   );
