@@ -10,7 +10,9 @@ function Portfolio() {
 
   return (
     <section id="portfolio">
-      <div className="container">
+      <div className="portfolio-section">
+        <h5>MY LATEST WORK</h5>
+
         <div className="portfolio-grid">
           {projects.map((project) => (
             <Link to={project.link} key={project.id} className="portfolio-card">

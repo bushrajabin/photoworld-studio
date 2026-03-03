@@ -1,69 +1,69 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import "../App.css";
 
 function Header() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "/typewriting.js";
-    script.async = true;
-    document.body.appendChild(script);
+  const words = ["Photographer", "Videographer", "Video Editor"];
+  const [text, setText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  useEffect(() => {
+    const currentWord = words[wordIndex];
+    let typingSpeed = isDeleting ? 60 : 120;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setText(currentWord.substring(0, text.length + 1));
+
+        if (text === currentWord) {
+          setTimeout(() => setIsDeleting(true), 1200);
+        }
+      } else {
+        setText(currentWord.substring(0, text.length - 1));
+
+        if (text === "") {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, wordIndex, words]);
 
   return (
     <header id="header" className="vh-100 flex">
       <div className="container">
         <div className="header-content">
-
           <h2>
             I'm a <br />
-            <span
-              className="typewrite"
-              data-loop="yes"
-              data-speed="100"
-              data-delay="2000"
-              data-words='["Photographer", "Videographer", "Video Editor"]'
-            ></span>
+            <span className="typed-wrapper">
+              <span className="typed-text">{text}</span>
+            </span>
           </h2>
 
           <h3>Majid Ahmad</h3>
 
-          {/* Social Links */}
           <ul className="social-links">
             <li>
-              <a
-                href="https://www.facebook.com/edit.king.908"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-facebook-f"></i>
+              <a href="https://www.facebook.com/edit.king.908" target="_blank" rel="noopener noreferrer">
+                <FaFacebook />
               </a>
             </li>
 
             <li>
-              <a
-                href="https://www.instagram.com/_photoworld_studio_/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-instagram"></i>
+              <a href="https://www.instagram.com/_photoworld_studio_/" target="_blank" rel="noopener noreferrer">
+                <FaInstagram />
               </a>
             </li>
 
             <li>
-              <a
-                href="https://youtube.com/@photoworldstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-youtube"></i>
+              <a href="https://youtube.com/@photoworldstudio" target="_blank" rel="noopener noreferrer">
+                <FaYoutube />
               </a>
             </li>
           </ul>
-
         </div>
       </div>
     </header>

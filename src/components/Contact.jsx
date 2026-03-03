@@ -1,4 +1,6 @@
 import React from "react";
+import contactImage from "../assets/images/pic14.jpeg";
+import PaymentImage from "../assets/images/payment.jpeg";
 
 function Contact() {
   return (
@@ -57,6 +59,11 @@ function Contact() {
             </form>
           </div>
 
+          {/* rigth side */}
+          <div className="contact-right">
+            <img src={contactImage} alt="Contact" />
+            <img src={PaymentImage} alt="" />
+          </div>
         </div>
       </div>
     </section>
