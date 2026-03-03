@@ -33,6 +33,7 @@ function Price() {
         "Full Cinematic Video (40min-1hr)",
         "1 Drone Shoot",
         "Photography",
+        "Highlits & Reels"
       ],
     },
     {
