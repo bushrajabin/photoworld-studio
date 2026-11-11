@@ -1,26 +1,25 @@
+import { useMedia } from "../../lib/useMedia";
+import { optimizeUrl } from "../../lib/config";
 
 function Reels() {
-
-  const reels = [
-    "https://res.cloudinary.com/djxx3xc6p/video/upload/v1772526589/AQPCbwh5vuIUm4QlIZAcsjPVN3WucqO2989RnbEjgKMljWtOFOPU-vljXBeEq8kcXJPFCljTu11dFSXf6Cv5pjYm8WSViTzvi_sYKg8_z5kmdq.mp4",
-    "https://res.cloudinary.com/djxx3xc6p/video/upload/f_mp4/v1772528809/IMG_4537_ifzt3f.mov",
-    "https://res.cloudinary.com/djxx3xc6p/video/upload/f_mp4/v1772527383/IMG_4521_cakhep.mov",
-    "https://res.cloudinary.com/djxx3xc6p/video/upload/v1772530416/STAR_PALACE_wfazzo.mov",
-    "https://res.cloudinary.com/djxx3xc6p/video/upload/v1772530176/IMG_4239.MOV_aoifnp.mov"
-  ];
+  const { items, loading, error } = useMedia("reels");
 
   return (
     <section className="reels-section">
       <h2 className="reels-title">REELS SHOOT</h2>
 
+      {loading && <p style={{ color: "#aaa" }}>Loading...</p>}
+      {error && <p style={{ color: "#aaa" }}>{error}</p>}
+
       <div className="reels-grid">
-        {reels.map((video, index) => (
-          <div key={index} className="reels-card">
+        {items.map((item) => (
+          <div key={item.id} className="reels-card">
             <video
-              src={video}
+              src={optimizeUrl(item.url)}
               muted
               loop
               controls
+              preload="metadata"
             />
           </div>
         ))}
